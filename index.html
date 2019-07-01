@@ -156,19 +156,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-读算法设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-算法设计-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/29/读算法设计/">Chapter1：稳定匹配问题</a>
+      <a class="article-title" href="/2019/06/29/算法设计-一/">Chapter 1：稳定匹配问题</a>
     </h1>
   
 
         
-        <a href="/2019/06/29/读算法设计/" class="archive-article-date">
+        <a href="/2019/06/29/算法设计-一/" class="archive-article-date">
   	<time datetime="2019-06-29T12:57:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
 </a>
         
@@ -176,8 +176,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是算法设计的第一章内容，也是用来引入“<strong><em>何谓算法</em></strong>”“<em>如何设计算法</em>”这一类问题的绝佳切入点。</p>
-<hr>
+        <p>这是“《Jon Kleinberg · Algorithm Design》”的第一章内容，也是用来引入“<strong><em>何谓算法</em></strong>”“<strong><em>如何设计算法</em></strong>”这一类问题的绝佳切入点。</p>
+<h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>​    稳定匹配问题的一个自然的来源是1962年两位数理经济学家David Gale和Lloyd Shapley，他们提出了一个问题：设计一个工作招聘处理过程，使得这个过程本身是<strong><em>自强化</em></strong>的？</p>
+<p>​    这里<strong><em>自强化</em></strong>的定义显而易见是指，招聘过程中，被动方（接受求职者简历的公司）可以随时调整自己接受的求职者，以让招聘过程的收益最大化。</p>
+<p>​    这个问题的一个简单形式如下（<em>这里不追求严格定义</em>）：有一些学生，他们都是某学校计算机专业的学生，在申请去一些公司暑期实习。申请过程中参与者有两类：公司（雇主）和学生（申请人）。这两类参与者在求职（招聘）过程中动态交互：学生发送简历到某公司，公司根据某些考虑决定是否接受，同时也可能将之前招聘的学生解雇；如果被当前公司拒绝（或解雇），那么就发送简历到下一个公司；重复此过程，直到所有学生都已经被雇用。</p>
+<p>​    每一个申请人对公司有一个优先排序（每个人当然都想去自己认为最好的公司），每个公司对这些申请人也有一个优先排序（公司也想要招聘到最好的职员）。基于这些优先排序，公司对某些人发出录用通知书，申请人选择某个通知书来接受，于是大家开开心心去实习。</p>
+<p>​    但是这里存在问题：假如我们对申请人投简历的时间和公司做录用决定的时间不作限制的话，那么就可能存在这样的情况：某个学生得到了阿里巴巴的录用通知书，并决定去了，但是这时候腾讯公司也发来录用通知，他更想去腾讯公司，那么阿里巴巴的录用就被搁置了；类似的，对于公司也可能出现这样的情况：公司向A发送了录取通知，这时候B向公司投递简历，公司的优先表上B要比A更优秀，那么这时候公司当然很愿意收回签一份录用通知转而录用更优秀的人。这两种情况在匹配中都是不稳定的因素，因此下面给出这个问题中“<strong><em>稳定</em></strong>”的定义：</p>
+<p>​    给定一组优先排序表，我们将申请人分配给雇主，使得对于每个雇主E，以及没有分配给E的每个申请人A，至少下面两种情况之一成立：</p>
+<p>​    （1）E对他所接受的每个申请人都比A更满意</p>
+<p>​    （2）A对他目前的情况比为E工作更满意</p>
+<p>​    如果这种情况成立，那么我们得到的匹配就是稳定的，没有任何理由让雇主或者申请人更改自己的决定。</p>
 
       
 
@@ -216,82 +224,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/29/读算法设计/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/29/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-29T01:02:13.889Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/29/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/06/29/算法设计-一/">展开全文 >></a>
         </p>
       
 
