@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hflash的博客">
 <meta property="og:description" content="Chapter 1：稳定匹配问题&amp;lt;一&amp;gt;&amp;emsp;&amp;emsp;这是《Jon Kleinberg · Algorithm Design》的第一章内容，也是用来引入 “何谓算法” “如何设计算法” 这一类问题的绝佳切入点.  问题定义&amp;emsp;&amp;emsp;稳定匹配问题的一个自然的来源是1962年两位数理经济学家David Gale和Lloyd Shapley，他们提出了一个问题：设计一个">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-02T06:14:51.063Z">
+<meta property="og:updated_time" content="2019-07-02T06:16:44.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法设计&lt;一&gt;">
 <meta name="twitter:description" content="Chapter 1：稳定匹配问题&amp;lt;一&amp;gt;&amp;emsp;&amp;emsp;这是《Jon Kleinberg · Algorithm Design》的第一章内容，也是用来引入 “何谓算法” “如何设计算法” 这一类问题的绝佳切入点.  问题定义&amp;emsp;&amp;emsp;稳定匹配问题的一个自然的来源是1962年两位数理经济学家David Gale和Lloyd Shapley，他们提出了一个问题：设计一个">
@@ -206,7 +206,7 @@
 <p>&emsp;&emsp;对于两个男人来说，他们的优先表不一样，对于两个女人来说也是如此：他们把不同的人排在自己的第一位；并且男人的优先表与女人的优先表完全冲突（简单来说就是，$A$觉得不错的人并不觉得$A$不错，反而更喜欢$B$）</p>
 <p>&emsp;&emsp;那么，从这种情况来看，就存在两个不同的稳定匹配：由$(m,w)$和$(m^\prime,w^\prime)$组成的匹配是稳定的，因为没有男人想离开他们匹配的伴侣；同理，由$(m,w^\prime)$和$(m^\prime,w)$组成的匹配也是稳定的，两个女人也是最满意的.</p>
 <p>&emsp;&emsp;通过以上两个简单的例子我们知道，对于一个实例，可能有多于一个的稳定匹配.</p>
-<p>&emsp;&emsp;那么，很自然地问：无论对于什么双边一对一的实例，是否一定存在一个稳定匹配呢？让我门先保留这个疑问.</p>
+<p>&emsp;&emsp;那么，很自然地问：无论对于什么双边一对一的实例，是否一定存在一个稳定匹配呢？让我们先保留这个疑问.</p>
 <hr>
 
       
@@ -603,5 +603,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>
