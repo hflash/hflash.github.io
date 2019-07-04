@@ -8,14 +8,18 @@
   <link rel="dns-prefetch" href="https://blog.hflash.info">
   <title>量子计算&lt;一&gt; | Hflash的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Chapter 1 :Preliminaries&amp;emsp;&amp;emsp;这是Andrew M. Childs（University of Maryland）量子信息课程讲义阅读的一些理解，包括本篇在内，按照下面的顺序来阐述： &amp;emsp;&amp;emsp; Preliminaries&amp;emsp;&amp;emsp;$\textrm{I}$. Quantum circuits&amp;emsp;&amp;emsp;$\textr">
+<meta name="keywords" content="量子计算">
+<meta property="og:type" content="article">
 <meta property="og:title" content="量子计算&lt;一&gt;">
-<meta property="og:url" content="https://blog.hflash.info/2019/07/04/量子计算-一/index.html">
+<meta property="og:url" content="https://blog.hflash.info/2019/07/03/量子计算-一/index.html">
 <meta property="og:site_name" content="Hflash的博客">
+<meta property="og:description" content="Chapter 1 :Preliminaries&amp;emsp;&amp;emsp;这是Andrew M. Childs（University of Maryland）量子信息课程讲义阅读的一些理解，包括本篇在内，按照下面的顺序来阐述： &amp;emsp;&amp;emsp; Preliminaries&amp;emsp;&amp;emsp;$\textrm{I}$. Quantum circuits&amp;emsp;&amp;emsp;$\textr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T02:20:50.856Z">
+<meta property="og:updated_time" content="2019-07-04T02:35:55.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="量子计算&lt;一&gt;">
+<meta name="twitter:description" content="Chapter 1 :Preliminaries&amp;emsp;&amp;emsp;这是Andrew M. Childs（University of Maryland）量子信息课程讲义阅读的一些理解，包括本篇在内，按照下面的顺序来阐述： &amp;emsp;&amp;emsp; Preliminaries&amp;emsp;&amp;emsp;$\textrm{I}$. Quantum circuits&amp;emsp;&amp;emsp;$\textr">
   
     <link rel="alternative" href="/atom.xml" title="Hflash的博客" type="application/atom+xml">
   
@@ -167,15 +171,32 @@
   
 
         
-        <a href="/2019/07/04/量子计算-一/" class="archive-article-date">
-  	<time datetime="2019-07-04T02:20:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+        <a href="/2019/07/03/量子计算-一/" class="archive-article-date">
+  	<time datetime="2019-07-03T12:10:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Chapter-1-Preliminaries"><a href="#Chapter-1-Preliminaries" class="headerlink" title="Chapter 1 :Preliminaries"></a>Chapter 1 :Preliminaries</h2><p>&emsp;&emsp;这是Andrew M. Childs（University of Maryland）量子信息课程讲义阅读的一些理解，包括本篇在内，按照下面的顺序来阐述：</p>
+<p>&emsp;&emsp; Preliminaries<br>&emsp;&emsp;$\textrm{I}$. Quantum circuits<br>&emsp;&emsp;$\textrm{II}$.Quantum algorithms for algebraic problems<br>&emsp;&emsp;$\textrm{III}$.Qauntum walk<br>&emsp;&emsp;$\textrm{IV}$.Quantum query complexity<br>&emsp;&emsp;$\textrm{V$.Quantum simulation<br>&emsp;&emsp;$\textrm{VI}$.Adiabatic quantum computing</p>
+<hr>
+<h3 id="1-1-Quantum-data"><a href="#1-1-Quantum-data" class="headerlink" title="1.1 Quantum data"></a>1.1 Quantum data</h3><p>&emsp;&emsp;什么是量子计算机？用量子力学表征的信息来做计算的计算机，也就是用量子比特来存储、计算、传递的信息。量子比特一般用$\ell_{2}-$（Euclid范数）单位化的复向量空间（Hilbert空间）的向量来表征.例如，n量子比特表示为：</p>
+<script type="math/tex; mode=display">
+|\psi\rangle=\sum_{x \in\{0,1\}^{n}} a_{x}|x\rangle</script><p>且有</p>
+<script type="math/tex; mode=display">
+a_{x} \in \mathbb{C}\qquad\sum_{x}\left|a_{x}\right|^{2}=1</script><p>&emsp;&emsp;这里，$|x\rangle$态的基我们称之为标准计算基.</p>
+<p>&emsp;&emsp;很多时候，我们甚至可以用简洁有效的量子态的表征方式来表达一些更复杂的结构，以期能够找到这种结构与量子态之间的关系，进而找到相关问题的量子解法。例如，给定一个群 $G$ , 对于$ g \in G$，我们可以将 $|g\rangle$ 看作一组基 ，有</p>
+<script type="math/tex; mode=display">
+|\phi\rangle=\sum_{g \in G} b_{g}|g\rangle \\
+在对b_{g}不加限制的时候，|\phi\rangle 表示这个群上任意一个叠加态.</script><p>&emsp;&emsp;一般来说，量子计算机中若同时储存有$|\phi\rangle$和$|\phi\rangle$，那么这个计算机的整体态是通过这两者的张量形式来表示的：</p>
+<script type="math/tex; mode=display">
+|\psi\rangle \otimes|\phi\rangle=|\psi\rangle|\phi\rangle=|\psi, \phi\rangle</script><hr>
+<h3 id="1-2-Quantum-circuits"><a href="#1-2-Quantum-circuits" class="headerlink" title="1.2 Quantum circuits"></a>1.2 Quantum circuits</h3><p>&emsp;&emsp;在量子态上的操作一般来说需要保留量子态的一些性质（可逆操作）：将标准态映射到另一个标准态（即保证内积不变？），这种操作称为<strong><em>酉操作</em></strong> ，满足$U U^{\dagger}=U^{\dagger} U=I$.当然，还存在一些更为普遍的操作，比如量子态的测量（Measurement）,这种操作对于量子态是一种不可逆的操作。</p>
+<p>&emsp;&emsp;这些U操作都可以在量子线路上实现. 给定一些单比特门或者双比特门，让量子比特从初始状态$|0\rangle$开始通过这些门，最后在某个计算基上测量进而得到我们想要的结果。</p>
+<hr>
+<h3 id="1-3-Universal-gate-sets"><a href="#1-3-Universal-gate-sets" class="headerlink" title="1.3 Universal gate sets"></a>1.3 Universal gate sets</h3>
       
 
       
@@ -204,6 +225,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">量子计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -254,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hflash.info/2019/07/04/量子计算-一/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hflash.info/2019/07/03/量子计算-一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,6 +321,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Preliminaries"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 :Preliminaries</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Quantum-data"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Quantum data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Quantum-circuits"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Quantum circuits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Universal-gate-sets"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Universal gate sets</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -401,6 +446,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">量子计算</a>
               </li>
             
             <div class="clearfix"></div>
